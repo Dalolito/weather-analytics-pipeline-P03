@@ -1,7 +1,16 @@
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
+# Cargar variables de entorno desde el archivo .env
+# Buscar .env en el directorio raíz del proyecto
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(current_dir)
+dotenv_path = os.path.join(project_root, '.env')
+
+if os.path.exists(dotenv_path):
+    load_dotenv(dotenv_path)
+else:
+    load_dotenv()  # Buscar en ubicaciones por defecto
 
 # Open-Meteo Configuration
 OPENMETEO_BASE_URL = "https://api.open-meteo.com/v1"
@@ -36,5 +45,6 @@ DB_CONFIG = {
     'host': os.getenv('DB_HOST'),
     'user': os.getenv('DB_USER', 'admin'),
     'password': os.getenv('DB_PASSWORD'),
-    'database': os.getenv('DB_NAME', 'weather_data')
+    'database': os.getenv('DB_NAME', 'weather_data'),
+    'port': int(os.getenv('DB_PORT', 3306))
 }

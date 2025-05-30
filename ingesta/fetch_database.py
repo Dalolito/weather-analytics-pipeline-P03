@@ -4,10 +4,14 @@ import boto3
 import json
 import os
 from datetime import datetime, timedelta
-from dotenv import load_dotenv
 import logging
+import sys
+
+# Agregar el directorio raíz al path de Python
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Cargar variables de entorno
+from dotenv import load_dotenv
 load_dotenv()
 
 # Configurar logging
@@ -22,7 +26,8 @@ class DatabaseIngester:
             'host': os.getenv('DB_HOST'),
             'user': os.getenv('DB_USER', 'admin'),
             'password': os.getenv('DB_PASSWORD'),
-            'database': os.getenv('DB_NAME', 'weather_data')
+            'database': os.getenv('DB_NAME', 'weather_data'),
+            'port': int(os.getenv('DB_PORT', 3306))
         }
 
     def extract_weather_stations(self):
@@ -118,7 +123,7 @@ class DatabaseIngester:
                 }
             )
             
-            logger.info(f"Datos subidos a s3://{self.bucket_name}/{s3_key}")
+            logger.info(f"✅ Datos subidos a s3://{self.bucket_name}/{s3_key}")
             return s3_key
             
         except Exception as e:
@@ -129,6 +134,11 @@ class DatabaseIngester:
         """Ejecutar proceso completo de ingesta desde BD"""
         logger.info("🚀 Iniciando ingesta desde base de datos...")
         results = []
+
+        # Verificar configuración de BD
+        if not all([self.db_config['host'], self.db_config['password']]):
+            logger.error("❌ Configuración de BD incompleta en variables de entorno")
+            return results
 
         # Extraer y subir estaciones meteorológicas
         stations_df = self.extract_weather_stations()
@@ -141,6 +151,12 @@ class DatabaseIngester:
                     's3_key': s3_key,
                     'status': 'success'
                 })
+        else:
+            results.append({
+                'table': 'weather_stations',
+                'records': 0,
+                'status': 'no_data_or_error'
+            })
 
         # Extraer y subir eventos climáticos
         events_df = self.extract_climate_events()
@@ -153,6 +169,12 @@ class DatabaseIngester:
                     's3_key': s3_key,
                     'status': 'success'
                 })
+        else:
+            results.append({
+                'table': 'climate_events',
+                'records': 0,
+                'status': 'no_data_or_error'
+            })
 
         # Extraer y subir umbrales de alerta
         thresholds_df = self.extract_weather_thresholds()
@@ -165,17 +187,35 @@ class DatabaseIngester:
                     's3_key': s3_key,
                     'status': 'success'
                 })
+        else:
+            results.append({
+                'table': 'weather_thresholds',
+                'records': 0,
+                'status': 'no_data_or_error'
+            })
 
         return results
 
 if __name__ == "__main__":
-    # Cargar configuración de buckets
-    with open('config/buckets.json', 'r') as f:
-        buckets = json.load(f)
+    # Cargar configuración de buckets - ruta relativa desde raíz
+    config_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'config', 'buckets.json')
     
-    ingester = DatabaseIngester(buckets['raw'])
-    results = ingester.run_ingestion()
-    
-    logger.info("Ingesta completada:")
-    for result in results:
-        logger.info(f"  {result['table']}: {result['records']} registros -> {result['s3_key']}")
+    try:
+        with open(config_path, 'r') as f:
+            buckets = json.load(f)
+        
+        ingester = DatabaseIngester(buckets['raw'])
+        results = ingester.run_ingestion()
+        
+        logger.info("Ingesta completada:")
+        for result in results:
+            if result['status'] == 'success':
+                logger.info(f"✅ {result['table']}: {result['records']} registros -> {result['s3_key']}")
+            else:
+                logger.warning(f"⚠️ {result['table']}: {result['status']}")
+                
+    except FileNotFoundError:
+        logger.error("❌ Error: config/buckets.json not found")
+        logger.error("💡 Ejecuta primero: python infrastructure/setup_s3_buckets.py")
+    except Exception as e:
+        logger.error(f"❌ Error: {e}")

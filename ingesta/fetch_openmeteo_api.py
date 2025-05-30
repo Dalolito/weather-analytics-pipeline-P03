@@ -3,8 +3,41 @@ import json
 import boto3
 import pandas as pd
 from datetime import datetime, timedelta
-from config.config import OPENMETEO_BASE_URL, CITIES, WEATHER_VARIABLES, AWS_REGION
 import logging
+import sys
+import os
+
+# Agregar el directorio raíz al path de Python
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+# Ahora importar la configuración
+try:
+    from config.config import OPENMETEO_BASE_URL, CITIES, WEATHER_VARIABLES, AWS_REGION
+except ImportError:
+    # Si falla el import, usar configuración directa
+    from dotenv import load_dotenv
+    load_dotenv()
+    
+    OPENMETEO_BASE_URL = "https://api.open-meteo.com/v1"
+    AWS_REGION = os.getenv('AWS_DEFAULT_REGION', 'us-east-1')
+    
+    CITIES = {
+        'bogota': {'lat': 4.6097, 'lon': -74.0817, 'name': 'Bogotá'},
+        'medellin': {'lat': 6.2518, 'lon': -75.5636, 'name': 'Medellín'},
+        'cali': {'lat': 3.4516, 'lon': -76.5320, 'name': 'Cali'},
+        'cartagena': {'lat': 10.3910, 'lon': -75.4794, 'name': 'Cartagena'},
+        'barranquilla': {'lat': 10.9639, 'lon': -74.7964, 'name': 'Barranquilla'}
+    }
+    
+    WEATHER_VARIABLES = [
+        'temperature_2m_max',
+        'temperature_2m_min', 
+        'temperature_2m_mean',
+        'precipitation_sum',
+        'windspeed_10m_max',
+        'relative_humidity_2m_mean',
+        'surface_pressure_mean'
+    ]
 
 # Configurar logging
 logging.basicConfig(level=logging.INFO)
@@ -98,13 +131,22 @@ class OpenMeteoAPIIngester:
         return results
 
 if __name__ == "__main__":
-    # Cargar configuración de buckets
-    with open('config/buckets.json', 'r') as f:
-        buckets = json.load(f)
+    # Cargar configuración de buckets - ruta relativa desde raíz
+    config_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'config', 'buckets.json')
     
-    ingester = OpenMeteoAPIIngester(buckets['raw'])
-    results = ingester.run_ingestion()
-    
-    logger.info("Ingestion completed:")
-    for result in results:
-        logger.info(f"  {result}")  
+    try:
+        with open(config_path, 'r') as f:
+            buckets = json.load(f)
+        
+        ingester = OpenMeteoAPIIngester(buckets['raw'])
+        results = ingester.run_ingestion()
+        
+        logger.info("Ingestion completed:")
+        for result in results:
+            logger.info(f"  {result}")
+            
+    except FileNotFoundError:
+        logger.error("❌ Error: config/buckets.json not found")
+        logger.error("💡 Ejecuta primero: python infrastructure/setup_s3_buckets.py")
+    except Exception as e:
+        logger.error(f"❌ Error: {e}")
