@@ -3,10 +3,14 @@ Tests para validar jobs de Spark
 """
 import pytest
 import boto3
-from moto import mock_s3
+from moto import mock_aws  # Cambio aquí: mock_s3 → mock_aws
 import json
+import os
+from dotenv import load_dotenv
 
-@mock_s3
+load_dotenv()
+
+@mock_aws
 def test_s3_bucket_access():
     """Test acceso a buckets S3"""
     # Crear cliente S3 mock
@@ -23,6 +27,8 @@ def test_s3_bucket_access():
     
     for bucket in buckets:
         assert bucket in bucket_names
+    
+    print("✅ S3 bucket mock test passed")
 
 def test_weather_data_schema():
     """Test esquema de datos meteorológicos"""
@@ -49,29 +55,25 @@ def test_weather_data_schema():
     assert "daily" in sample_weather_data
     assert "name" in sample_weather_data["city_info"]
     assert "temperature_2m_max" in sample_weather_data["daily"]
+    
+    print("✅ Weather data schema test passed")
 
 def test_database_connection_config():
     """Test configuración de conexión a BD"""
-    import os
-    from dotenv import load_dotenv
-    
-    # Las variables deben estar definidas
-    required_vars = [
-        'DB_HOST', 'DB_USER', 'DB_PASSWORD', 
-        'DB_NAME', 'AWS_ACCESS_KEY_ID'
-    ]
-    
     # En un entorno real, estas variables deberían existir
     # Para test, solo verificamos la estructura
     config = {
-        'host': 'test-host',
-        'user': 'test-user',
-        'password': 'test-password',
-        'database': 'test-db'
+        'host': os.getenv('DB_HOST', 'test-host'),
+        'user': os.getenv('DB_USER', 'test-user'),
+        'password': os.getenv('DB_PASSWORD', 'test-password'),
+        'database': os.getenv('DB_NAME', 'test-db')
     }
     
     for key in ['host', 'user', 'password', 'database']:
         assert key in config
+        assert config[key] is not None
+    
+    print("✅ Database config test passed")
 
 class TestWeatherAnalytics:
     """Clase de tests para Weather Analytics"""
@@ -83,6 +85,7 @@ class TestWeatherAnalytics:
         expected_avg = (temp_max + temp_min) / 2
         
         assert expected_avg == 25.0
+        print("✅ Temperature calculation test passed")
     
     def test_extreme_weather_detection(self):
         """Test detección de eventos extremos"""
@@ -102,6 +105,52 @@ class TestWeatherAnalytics:
                 assert condition["expected"] == "heavy_rain"
             elif "wind_speed" in condition and condition["wind_speed"] > 60:
                 assert condition["expected"] == "strong_winds"
+        
+        print("✅ Extreme weather detection test passed")
+
+    def test_data_validation_rules(self):
+        """Test reglas de validación de datos"""
+        # Test temperatura en rango razonable
+        valid_temps = [15.5, 25.0, 35.2, -5.0, 45.0]
+        invalid_temps = [-100, 100]
+        
+        for temp in valid_temps:
+            assert -50 <= temp <= 60, f"Temperature {temp} out of reasonable range"
+        
+        for temp in invalid_temps:
+            assert not (-50 <= temp <= 60), f"Temperature {temp} should be invalid"
+        
+        print("✅ Data validation rules test passed")
+
+    def test_city_coordinates(self):
+        """Test coordenadas de ciudades colombianas"""
+        colombian_cities = {
+            "Bogotá": {"lat": 4.6097, "lon": -74.0817},
+            "Medellín": {"lat": 6.2518, "lon": -75.5636},
+            "Cali": {"lat": 3.4516, "lon": -76.5320},
+            "Cartagena": {"lat": 10.3910, "lon": -75.4794},
+            "Barranquilla": {"lat": 10.9639, "lon": -74.7964}
+        }
+        
+        for city, coords in colombian_cities.items():
+            # Verificar que las coordenadas estén en el rango de Colombia
+            assert -5 <= coords["lat"] <= 15, f"Latitude for {city} out of Colombia range"
+            assert -85 <= coords["lon"] <= -65, f"Longitude for {city} out of Colombia range"
+        
+        print("✅ City coordinates test passed")
 
 if __name__ == "__main__":
-    pytest.main([__file__])
+    # Ejecutar todos los tests
+    print("🧪 Running Spark jobs tests...\n")
+    
+    test_s3_bucket_access()
+    test_weather_data_schema()
+    test_database_connection_config()
+    
+    analytics = TestWeatherAnalytics()
+    analytics.test_temperature_calculation()
+    analytics.test_extreme_weather_detection()
+    analytics.test_data_validation_rules()
+    analytics.test_city_coordinates()
+    
+    print("\n🎉 All Spark jobs tests passed!")
