@@ -1,16 +1,24 @@
 import boto3
 import json
 import time
+import os
 from datetime import datetime
 import logging
+from dotenv import load_dotenv
+
+# Cargar variables de entorno
+load_dotenv()
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 class WeatherAnalyticsOrchestrator:
     def __init__(self):
-        self.emr_client = boto3.client('emr')
-        self.s3_client = boto3.client('s3')
+        # Usar región desde variables de entorno
+        aws_region = os.getenv('AWS_DEFAULT_REGION', 'us-east-1')
+        
+        self.emr_client = boto3.client('emr', region_name=aws_region)
+        self.s3_client = boto3.client('s3', region_name=aws_region)
         
         # Cargar configuración
         with open('config/buckets.json', 'r') as f:
