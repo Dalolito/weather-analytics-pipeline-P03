@@ -100,4 +100,4 @@ Bookstore-P02/
 5. Ejecutar `python tests/test_connections.py`
 6. Ejecutar `python ingesta/fetch_openmeteo_api.py`
 
-## Estructura del Proyecto
+## Referencias
