@@ -1,0 +1,32 @@
+{
+  "total_records": 50,
+  "cities": [
+    "Bogot\u00e1",
+    "Medell\u00edn",
+    "Cali",
+    "Cartagena",
+    "Barranquilla"
+  ],
+  "date_range": {
+    "start": "2025-05-20T00:00:00",
+    "end": "2025-05-29T00:00:00"
+  },
+  "variables": [
+    "city_name",
+    "latitude",
+    "longitude",
+    "date",
+    "temp_max",
+    "temp_min",
+    "temp_avg",
+    "precipitation",
+    "humidity",
+    "wind_speed",
+    "ingestion_timestamp",
+    "data_source"
+  ],
+  "export_timestamp": "2025-06-01T21:12:52.026504",
+  "source": "sample_data_for_demo",
+  "export_folder": "/home/jdacunag/BigData-P03/weather-analytics-pipeline-P03/visualizations/notebook/Colab2",
+  "note": "Datos de ejemplo generados autom\u00e1ticamente para demostraci\u00f3n"
+}

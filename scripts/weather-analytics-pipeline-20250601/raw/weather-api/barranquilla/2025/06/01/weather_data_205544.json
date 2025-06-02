@@ -1,0 +1,118 @@
+{
+  "latitude": 11.0,
+  "longitude": -74.75,
+  "generationtime_ms": 0.08547306060791016,
+  "utc_offset_seconds": -18000,
+  "timezone": "America/Bogota",
+  "timezone_abbreviation": "GMT-5",
+  "elevation": 41.0,
+  "current_weather_units": {
+    "time": "iso8601",
+    "interval": "seconds",
+    "temperature": "°C",
+    "windspeed": "km/h",
+    "winddirection": "°",
+    "is_day": "",
+    "weathercode": "wmo code"
+  },
+  "current_weather": {
+    "time": "2025-06-01T20:45",
+    "interval": 900,
+    "temperature": 27.1,
+    "windspeed": 4.9,
+    "winddirection": 324,
+    "is_day": 0,
+    "weathercode": 2
+  },
+  "daily_units": {
+    "time": "iso8601",
+    "temperature_2m_max": "°C",
+    "temperature_2m_min": "°C",
+    "temperature_2m_mean": "°C",
+    "precipitation_sum": "mm",
+    "windspeed_10m_max": "km/h",
+    "relative_humidity_2m_mean": "%",
+    "surface_pressure_mean": "hPa"
+  },
+  "daily": {
+    "time": [
+      "2025-06-01",
+      "2025-06-02",
+      "2025-06-03",
+      "2025-06-04",
+      "2025-06-05",
+      "2025-06-06",
+      "2025-06-07"
+    ],
+    "temperature_2m_max": [
+      32.8,
+      32.9,
+      32.9,
+      32.4,
+      30.0,
+      31.1,
+      31.8
+    ],
+    "temperature_2m_min": [
+      25.8,
+      25.3,
+      26.5,
+      26.6,
+      26.3,
+      26.4,
+      27.0
+    ],
+    "temperature_2m_mean": [
+      28.0,
+      28.0,
+      28.7,
+      28.4,
+      27.8,
+      28.2,
+      28.8
+    ],
+    "precipitation_sum": [
+      1.7,
+      2.4,
+      0.1,
+      2.5,
+      3.6,
+      1.5,
+      0.0
+    ],
+    "windspeed_10m_max": [
+      12.8,
+      14.8,
+      18.7,
+      17.4,
+      12.2,
+      18.9,
+      22.6
+    ],
+    "relative_humidity_2m_mean": [
+      83,
+      83,
+      81,
+      81,
+      85,
+      82,
+      79
+    ],
+    "surface_pressure_mean": [
+      1006.8,
+      1006.3,
+      1004.6,
+      1004.0,
+      1005.3,
+      1005.3,
+      1004.1
+    ]
+  },
+  "city_info": {
+    "lat": 10.9639,
+    "lon": -74.7964,
+    "name": "Barranquilla"
+  },
+  "ingestion_timestamp": "2025-06-01T20:55:44.415092",
+  "data_source": "openmeteo_api"
+}

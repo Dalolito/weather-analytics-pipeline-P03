@@ -1,0 +1,6 @@
+{
+  "raw": "weather-analytics-pipeline-raw-20250601",
+  "trusted": "weather-analytics-pipeline-trusted-20250601",
+  "refined": "weather-analytics-pipeline-refined-20250601",
+  "scripts": "weather-analytics-pipeline-scripts-20250601"
+}

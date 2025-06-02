@@ -1,0 +1,118 @@
+{
+  "latitude": 6.125,
+  "longitude": -75.75,
+  "generationtime_ms": 0.26404857635498047,
+  "utc_offset_seconds": -18000,
+  "timezone": "America/Bogota",
+  "timezone_abbreviation": "GMT-5",
+  "elevation": 1493.0,
+  "current_weather_units": {
+    "time": "iso8601",
+    "interval": "seconds",
+    "temperature": "°C",
+    "windspeed": "km/h",
+    "winddirection": "°",
+    "is_day": "",
+    "weathercode": "wmo code"
+  },
+  "current_weather": {
+    "time": "2025-06-01T20:45",
+    "interval": 900,
+    "temperature": 20.4,
+    "windspeed": 1.9,
+    "winddirection": 158,
+    "is_day": 0,
+    "weathercode": 2
+  },
+  "daily_units": {
+    "time": "iso8601",
+    "temperature_2m_max": "°C",
+    "temperature_2m_min": "°C",
+    "temperature_2m_mean": "°C",
+    "precipitation_sum": "mm",
+    "windspeed_10m_max": "km/h",
+    "relative_humidity_2m_mean": "%",
+    "surface_pressure_mean": "hPa"
+  },
+  "daily": {
+    "time": [
+      "2025-06-01",
+      "2025-06-02",
+      "2025-06-03",
+      "2025-06-04",
+      "2025-06-05",
+      "2025-06-06",
+      "2025-06-07"
+    ],
+    "temperature_2m_max": [
+      24.0,
+      26.2,
+      26.7,
+      25.0,
+      24.9,
+      28.0,
+      29.5
+    ],
+    "temperature_2m_min": [
+      17.9,
+      18.2,
+      17.7,
+      18.0,
+      18.1,
+      18.6,
+      19.0
+    ],
+    "temperature_2m_mean": [
+      20.8,
+      21.5,
+      21.7,
+      21.3,
+      21.1,
+      22.5,
+      23.5
+    ],
+    "precipitation_sum": [
+      20.9,
+      11.5,
+      5.4,
+      5.8,
+      16.5,
+      0.6,
+      0.0
+    ],
+    "windspeed_10m_max": [
+      6.4,
+      7.7,
+      8.2,
+      8.9,
+      8.0,
+      8.4,
+      9.4
+    ],
+    "relative_humidity_2m_mean": [
+      89,
+      81,
+      76,
+      78,
+      85,
+      71,
+      59
+    ],
+    "surface_pressure_mean": [
+      855.9,
+      855.5,
+      854.5,
+      854.1,
+      854.7,
+      854.8,
+      854.3
+    ]
+  },
+  "city_info": {
+    "lat": 6.2518,
+    "lon": -75.5636,
+    "name": "Medellín"
+  },
+  "ingestion_timestamp": "2025-06-01T20:55:41.706118",
+  "data_source": "openmeteo_api"
+}

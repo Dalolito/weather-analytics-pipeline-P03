@@ -1,0 +1,178 @@
+[
+  {
+    "threshold_id": 1,
+    "station_id": "BOG001",
+    "parameter_name": "temperature",
+    "min_value": -5.0,
+    "max_value": 30.0,
+    "alert_level": "warning",
+    "notification_enabled": 1,
+    "station_name": "Estación Bogotá Centro",
+    "city": "Bogotá"
+  },
+  {
+    "threshold_id": 2,
+    "station_id": "BOG001",
+    "parameter_name": "precipitation",
+    "min_value": 0.0,
+    "max_value": 50.0,
+    "alert_level": "critical",
+    "notification_enabled": 1,
+    "station_name": "Estación Bogotá Centro",
+    "city": "Bogotá"
+  },
+  {
+    "threshold_id": 3,
+    "station_id": "MED001",
+    "parameter_name": "temperature",
+    "min_value": 10.0,
+    "max_value": 35.0,
+    "alert_level": "warning",
+    "notification_enabled": 1,
+    "station_name": "Estación Medellín Olaya Herrera",
+    "city": "Medellín"
+  },
+  {
+    "threshold_id": 4,
+    "station_id": "CTG001",
+    "parameter_name": "temperature",
+    "min_value": 20.0,
+    "max_value": 40.0,
+    "alert_level": "critical",
+    "notification_enabled": 1,
+    "station_name": "Estación Cartagena Centro",
+    "city": "Cartagena"
+  },
+  {
+    "threshold_id": 5,
+    "station_id": "BOG001",
+    "parameter_name": "temperature",
+    "min_value": -5.0,
+    "max_value": 30.0,
+    "alert_level": "warning",
+    "notification_enabled": 1,
+    "station_name": "Estación Bogotá Centro",
+    "city": "Bogotá"
+  },
+  {
+    "threshold_id": 6,
+    "station_id": "BOG001",
+    "parameter_name": "precipitation",
+    "min_value": 0.0,
+    "max_value": 50.0,
+    "alert_level": "critical",
+    "notification_enabled": 1,
+    "station_name": "Estación Bogotá Centro",
+    "city": "Bogotá"
+  },
+  {
+    "threshold_id": 7,
+    "station_id": "MED001",
+    "parameter_name": "temperature",
+    "min_value": 10.0,
+    "max_value": 35.0,
+    "alert_level": "warning",
+    "notification_enabled": 1,
+    "station_name": "Estación Medellín Olaya Herrera",
+    "city": "Medellín"
+  },
+  {
+    "threshold_id": 8,
+    "station_id": "CTG001",
+    "parameter_name": "temperature",
+    "min_value": 20.0,
+    "max_value": 40.0,
+    "alert_level": "critical",
+    "notification_enabled": 1,
+    "station_name": "Estación Cartagena Centro",
+    "city": "Cartagena"
+  },
+  {
+    "threshold_id": 9,
+    "station_id": "BOG001",
+    "parameter_name": "temperature",
+    "min_value": -5.0,
+    "max_value": 30.0,
+    "alert_level": "warning",
+    "notification_enabled": 1,
+    "station_name": "Estación Bogotá Centro",
+    "city": "Bogotá"
+  },
+  {
+    "threshold_id": 10,
+    "station_id": "BOG001",
+    "parameter_name": "precipitation",
+    "min_value": 0.0,
+    "max_value": 50.0,
+    "alert_level": "critical",
+    "notification_enabled": 1,
+    "station_name": "Estación Bogotá Centro",
+    "city": "Bogotá"
+  },
+  {
+    "threshold_id": 11,
+    "station_id": "MED001",
+    "parameter_name": "temperature",
+    "min_value": 10.0,
+    "max_value": 35.0,
+    "alert_level": "warning",
+    "notification_enabled": 1,
+    "station_name": "Estación Medellín Olaya Herrera",
+    "city": "Medellín"
+  },
+  {
+    "threshold_id": 12,
+    "station_id": "CTG001",
+    "parameter_name": "temperature",
+    "min_value": 20.0,
+    "max_value": 40.0,
+    "alert_level": "critical",
+    "notification_enabled": 1,
+    "station_name": "Estación Cartagena Centro",
+    "city": "Cartagena"
+  },
+  {
+    "threshold_id": 13,
+    "station_id": "BOG001",
+    "parameter_name": "temperature_max",
+    "min_value": NaN,
+    "max_value": 25.0,
+    "alert_level": "warning",
+    "notification_enabled": 1,
+    "station_name": "Estación Bogotá Centro",
+    "city": "Bogotá"
+  },
+  {
+    "threshold_id": 14,
+    "station_id": "BOG001",
+    "parameter_name": "temperature_min",
+    "min_value": 5.0,
+    "max_value": NaN,
+    "alert_level": "critical",
+    "notification_enabled": 1,
+    "station_name": "Estación Bogotá Centro",
+    "city": "Bogotá"
+  },
+  {
+    "threshold_id": 15,
+    "station_id": "CTG001",
+    "parameter_name": "temperature_max",
+    "min_value": NaN,
+    "max_value": 35.0,
+    "alert_level": "warning",
+    "notification_enabled": 1,
+    "station_name": "Estación Cartagena Centro",
+    "city": "Cartagena"
+  },
+  {
+    "threshold_id": 16,
+    "station_id": "MED001",
+    "parameter_name": "precipitation",
+    "min_value": NaN,
+    "max_value": 50.0,
+    "alert_level": "warning",
+    "notification_enabled": 1,
+    "station_name": "Estación Medellín Olaya Herrera",
+    "city": "Medellín"
+  }
+]

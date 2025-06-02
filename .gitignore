@@ -19,8 +19,6 @@ env/
 .ipynb_checkpoints/
 
 # Data files (archivos grandes)
-*.csv
-*.json
 *.parquet
 data/raw/
 data/processed/
@@ -46,3 +44,6 @@ Desktop.ini
 *.temp
 *.bak
 En VS Code:
+
+# Cluster
+cluster_info.json
