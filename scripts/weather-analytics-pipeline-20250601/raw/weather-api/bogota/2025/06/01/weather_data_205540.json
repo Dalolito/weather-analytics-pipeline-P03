@@ -1,0 +1,118 @@
+{
+  "latitude": 4.625,
+  "longitude": -74.125,
+  "generationtime_ms": 0.0591278076171875,
+  "utc_offset_seconds": -18000,
+  "timezone": "America/Bogota",
+  "timezone_abbreviation": "GMT-5",
+  "elevation": 2582.0,
+  "current_weather_units": {
+    "time": "iso8601",
+    "interval": "seconds",
+    "temperature": "°C",
+    "windspeed": "km/h",
+    "winddirection": "°",
+    "is_day": "",
+    "weathercode": "wmo code"
+  },
+  "current_weather": {
+    "time": "2025-06-01T20:45",
+    "interval": 900,
+    "temperature": 12.2,
+    "windspeed": 10.0,
+    "winddirection": 120,
+    "is_day": 0,
+    "weathercode": 61
+  },
+  "daily_units": {
+    "time": "iso8601",
+    "temperature_2m_max": "°C",
+    "temperature_2m_min": "°C",
+    "temperature_2m_mean": "°C",
+    "precipitation_sum": "mm",
+    "windspeed_10m_max": "km/h",
+    "relative_humidity_2m_mean": "%",
+    "surface_pressure_mean": "hPa"
+  },
+  "daily": {
+    "time": [
+      "2025-06-01",
+      "2025-06-02",
+      "2025-06-03",
+      "2025-06-04",
+      "2025-06-05",
+      "2025-06-06",
+      "2025-06-07"
+    ],
+    "temperature_2m_max": [
+      16.4,
+      15.8,
+      14.4,
+      14.0,
+      16.9,
+      16.8,
+      16.1
+    ],
+    "temperature_2m_min": [
+      12.1,
+      11.7,
+      11.2,
+      10.1,
+      10.5,
+      10.0,
+      10.9
+    ],
+    "temperature_2m_mean": [
+      13.6,
+      13.2,
+      12.5,
+      12.1,
+      13.0,
+      12.8,
+      13.0
+    ],
+    "precipitation_sum": [
+      0.7,
+      0.0,
+      1.8,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "windspeed_10m_max": [
+      25.2,
+      25.6,
+      19.7,
+      13.0,
+      22.0,
+      23.9,
+      27.1
+    ],
+    "relative_humidity_2m_mean": [
+      80,
+      81,
+      83,
+      85,
+      81,
+      79,
+      77
+    ],
+    "surface_pressure_mean": [
+      756.5,
+      756.2,
+      755.1,
+      754.2,
+      755.1,
+      755.4,
+      755.6
+    ]
+  },
+  "city_info": {
+    "lat": 4.6097,
+    "lon": -74.0817,
+    "name": "Bogotá"
+  },
+  "ingestion_timestamp": "2025-06-01T20:55:40.512146",
+  "data_source": "openmeteo_api"
+}

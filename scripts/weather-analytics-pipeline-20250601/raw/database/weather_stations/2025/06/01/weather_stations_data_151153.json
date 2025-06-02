@@ -1,0 +1,67 @@
+[
+  {
+    "station_id": "BAQ001",
+    "station_name": "Estación Barranquilla Metropolitana",
+    "latitude": 10.9639,
+    "longitude": -74.7964,
+    "elevation": 98,
+    "city": "Barranquilla",
+    "department": "Atlántico",
+    "country": "Colombia",
+    "installation_date": "2012-08-05",
+    "station_type": "coastal",
+    "status": "active"
+  },
+  {
+    "station_id": "BOG001",
+    "station_name": "Estación Bogotá Centro",
+    "latitude": 4.6097,
+    "longitude": -74.0817,
+    "elevation": 2640,
+    "city": "Bogotá",
+    "department": "Cundinamarca",
+    "country": "Colombia",
+    "installation_date": "2010-01-01",
+    "station_type": "urban",
+    "status": "active"
+  },
+  {
+    "station_id": "CAL001",
+    "station_name": "Estación Cali Alfonso Bonilla",
+    "latitude": 3.4516,
+    "longitude": -76.532,
+    "elevation": 969,
+    "city": "Cali",
+    "department": "Valle del Cauca",
+    "country": "Colombia",
+    "installation_date": "2009-06-10",
+    "station_type": "urban",
+    "status": "active"
+  },
+  {
+    "station_id": "CTG001",
+    "station_name": "Estación Cartagena Centro",
+    "latitude": 10.391,
+    "longitude": -75.4794,
+    "elevation": 2,
+    "city": "Cartagena",
+    "department": "Bolívar",
+    "country": "Colombia",
+    "installation_date": "2011-02-20",
+    "station_type": "coastal",
+    "status": "active"
+  },
+  {
+    "station_id": "MED001",
+    "station_name": "Estación Medellín Olaya Herrera",
+    "latitude": 6.2518,
+    "longitude": -75.5636,
+    "elevation": 1495,
+    "city": "Medellín",
+    "department": "Antioquia",
+    "country": "Colombia",
+    "installation_date": "2008-03-15",
+    "station_type": "urban",
+    "status": "active"
+  }
+]

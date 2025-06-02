@@ -1,0 +1,49 @@
+{
+  "creation_date": "2025-06-01",
+  "timestamp": "20250601",
+  "project": "weather-analytics-pipeline",
+  "description": "Datos de ingesta y procesamiento para an\u00e1lisis meteorol\u00f3gico",
+  "bucket_types": [
+    "raw",
+    "trusted",
+    "refined",
+    "scripts"
+  ],
+  "s3_buckets": {
+    "raw": "weather-analytics-pipeline-raw-20250601",
+    "trusted": "weather-analytics-pipeline-trusted-20250601",
+    "refined": "weather-analytics-pipeline-refined-20250601",
+    "scripts": "weather-analytics-pipeline-scripts-20250601"
+  },
+  "local_path": "scripts/weather-analytics-pipeline-20250601",
+  "structure": {
+    "raw": [
+      "weather-api",
+      "weather-historical",
+      "database",
+      "logs"
+    ],
+    "trusted": [
+      "weather_data",
+      "weather_stations",
+      "climate_events",
+      "integrated_weather_data"
+    ],
+    "refined": [
+      "temperature_trends_monthly",
+      "extreme_weather_events",
+      "annual_weather_summary",
+      "ml_model_metrics",
+      "temperature_predictions",
+      "weather_forecasts",
+      "athena-results",
+      "validation_reports"
+    ],
+    "scripts": [
+      "spark-jobs",
+      "bootstrap",
+      "logs"
+    ]
+  },
+  "setup_completed": "2025-06-01T15:10:19.128184"
+}

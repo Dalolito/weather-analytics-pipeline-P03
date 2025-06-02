@@ -1,0 +1,118 @@
+{
+  "latitude": 3.5,
+  "longitude": -76.5,
+  "generationtime_ms": 0.08916854858398438,
+  "utc_offset_seconds": -18000,
+  "timezone": "America/Bogota",
+  "timezone_abbreviation": "GMT-5",
+  "elevation": 1009.0,
+  "current_weather_units": {
+    "time": "iso8601",
+    "interval": "seconds",
+    "temperature": "°C",
+    "windspeed": "km/h",
+    "winddirection": "°",
+    "is_day": "",
+    "weathercode": "wmo code"
+  },
+  "current_weather": {
+    "time": "2025-06-01T20:45",
+    "interval": 900,
+    "temperature": 21.7,
+    "windspeed": 2.4,
+    "winddirection": 297,
+    "is_day": 0,
+    "weathercode": 3
+  },
+  "daily_units": {
+    "time": "iso8601",
+    "temperature_2m_max": "°C",
+    "temperature_2m_min": "°C",
+    "temperature_2m_mean": "°C",
+    "precipitation_sum": "mm",
+    "windspeed_10m_max": "km/h",
+    "relative_humidity_2m_mean": "%",
+    "surface_pressure_mean": "hPa"
+  },
+  "daily": {
+    "time": [
+      "2025-06-01",
+      "2025-06-02",
+      "2025-06-03",
+      "2025-06-04",
+      "2025-06-05",
+      "2025-06-06",
+      "2025-06-07"
+    ],
+    "temperature_2m_max": [
+      26.3,
+      28.3,
+      27.7,
+      27.1,
+      27.8,
+      28.2,
+      29.8
+    ],
+    "temperature_2m_min": [
+      19.2,
+      19.5,
+      19.2,
+      18.9,
+      19.1,
+      18.8,
+      18.7
+    ],
+    "temperature_2m_mean": [
+      22.6,
+      22.9,
+      22.6,
+      22.7,
+      22.8,
+      23.1,
+      23.6
+    ],
+    "precipitation_sum": [
+      4.0,
+      1.6,
+      3.4,
+      5.1,
+      1.6,
+      0.0,
+      0.0
+    ],
+    "windspeed_10m_max": [
+      10.3,
+      13.0,
+      12.4,
+      11.2,
+      13.4,
+      14.6,
+      19.4
+    ],
+    "relative_humidity_2m_mean": [
+      76,
+      77,
+      76,
+      75,
+      76,
+      74,
+      69
+    ],
+    "surface_pressure_mean": [
+      903.5,
+      902.8,
+      901.9,
+      901.5,
+      901.9,
+      901.6,
+      901.0
+    ]
+  },
+  "city_info": {
+    "lat": 3.4516,
+    "lon": -76.532,
+    "name": "Cali"
+  },
+  "ingestion_timestamp": "2025-06-01T20:55:42.598716",
+  "data_source": "openmeteo_api"
+}

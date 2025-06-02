@@ -1,0 +1,118 @@
+{
+  "latitude": 10.25,
+  "longitude": -75.5,
+  "generationtime_ms": 0.08738040924072266,
+  "utc_offset_seconds": -18000,
+  "timezone": "America/Bogota",
+  "timezone_abbreviation": "GMT-5",
+  "elevation": 13.0,
+  "current_weather_units": {
+    "time": "iso8601",
+    "interval": "seconds",
+    "temperature": "°C",
+    "windspeed": "km/h",
+    "winddirection": "°",
+    "is_day": "",
+    "weathercode": "wmo code"
+  },
+  "current_weather": {
+    "time": "2025-06-01T15:00",
+    "interval": 900,
+    "temperature": 30.4,
+    "windspeed": 14.7,
+    "winddirection": 287,
+    "is_day": 1,
+    "weathercode": 2
+  },
+  "daily_units": {
+    "time": "iso8601",
+    "temperature_2m_max": "°C",
+    "temperature_2m_min": "°C",
+    "temperature_2m_mean": "°C",
+    "precipitation_sum": "mm",
+    "windspeed_10m_max": "km/h",
+    "relative_humidity_2m_mean": "%",
+    "surface_pressure_mean": "hPa"
+  },
+  "daily": {
+    "time": [
+      "2025-06-01",
+      "2025-06-02",
+      "2025-06-03",
+      "2025-06-04",
+      "2025-06-05",
+      "2025-06-06",
+      "2025-06-07"
+    ],
+    "temperature_2m_max": [
+      32.0,
+      32.8,
+      31.5,
+      31.0,
+      29.8,
+      31.6,
+      35.1
+    ],
+    "temperature_2m_min": [
+      26.7,
+      26.9,
+      27.7,
+      27.5,
+      27.0,
+      26.9,
+      26.8
+    ],
+    "temperature_2m_mean": [
+      28.9,
+      29.1,
+      29.1,
+      28.8,
+      28.3,
+      28.7,
+      29.9
+    ],
+    "precipitation_sum": [
+      0.3,
+      0.7,
+      3.7,
+      7.2,
+      8.1,
+      0.6,
+      0.0
+    ],
+    "windspeed_10m_max": [
+      14.7,
+      17.3,
+      14.1,
+      9.9,
+      11.7,
+      16.2,
+      21.4
+    ],
+    "relative_humidity_2m_mean": [
+      78,
+      78,
+      81,
+      80,
+      81,
+      80,
+      75
+    ],
+    "surface_pressure_mean": [
+      1010.0,
+      1009.0,
+      1007.9,
+      1007.6,
+      1008.6,
+      1008.4,
+      1006.9
+    ]
+  },
+  "city_info": {
+    "lat": 10.391,
+    "lon": -75.4794,
+    "name": "Cartagena"
+  },
+  "ingestion_timestamp": "2025-06-01T15:09:41.467671",
+  "data_source": "openmeteo_api"
+}
