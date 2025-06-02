@@ -92,6 +92,8 @@ Umbrales de alerta: Configuraciones para detección de anomalías
 
 ### Diagrama de Arquitectura del Sistema
 
+![Image](https://github.com/user-attachments/assets/84b1592f-a493-4401-84bf-7565e5576d01)
+
 ## ¿Qué implementamos?
 
 ### Infraestructura base:
