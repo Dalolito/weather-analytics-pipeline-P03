@@ -529,7 +529,8 @@ python infrastructure/setup_s3_buckets.py
 python infrastructure/setup_emr_cluster.py
 ```
 
-**[IMAGEN: s3_buckets_created.png]**
+![image](https://github.com/user-attachments/assets/ba8f133e-a795-4b03-80c5-94460a9687b4)
+
 *Captura de buckets S3 creados exitosamente*
 
 #### 5. Ejecutar Pipeline Completo
@@ -581,9 +582,6 @@ python spark_jobs/test_spark_jobs.py
 
 ### Logs y Monitoreo
 
-**[IMAGEN: cloudwatch_logs_dashboard.png]**
-*Captura del dashboard de logs en CloudWatch*
-
 #### Ubicaciones de Logs
 - **EMR Logs**: `s3://bucket-scripts/logs/emr/`
 - **Lambda Logs**: CloudWatch `/aws/lambda/weather-api`
@@ -600,7 +598,8 @@ python spark_jobs/test_spark_jobs.py
 python applications/setup_athena.py
 ```
 
-**[IMAGEN: athena_tables_created.png]**
+![image](https://github.com/user-attachments/assets/5e97ac77-f732-4043-aa01-e2750a95c773)
+
 *Captura de tablas creadas en Athena*
 
 #### Tablas Disponibles
@@ -636,9 +635,6 @@ WHERE year = 2025
 ORDER BY city_name, month;
 ```
 
-**[IMAGEN: athena_query_execution.png]**
-*Captura de ejecución de consulta en Athena*
-
 ### APIs REST Disponibles
 
 #### Configuración de Lambda + API Gateway
@@ -655,8 +651,6 @@ def lambda_handler(event, context):
     # ... más endpoints
 ```
 
-**[IMAGEN: api_gateway_configuration.png]**
-*Captura de configuración de API Gateway*
 
 #### Endpoints Disponibles
 
@@ -689,8 +683,6 @@ GET /weather/extreme-events?type=heavy_rain&year=2024
 
 ### CloudWatch Integration
 
-**[IMAGEN: cloudwatch_metrics_dashboard.png]**
-*Captura del dashboard de métricas en CloudWatch*
 
 #### Métricas Monitoreadas
 
@@ -717,8 +709,6 @@ GET /weather/extreme-events?type=heavy_rain&year=2024
 
 ### Alertas Configuradas
 
-**[IMAGEN: cloudwatch_alarms.png]**
-*Captura de alarmas configuradas en CloudWatch*
 
 ```json
 {
@@ -756,8 +746,6 @@ logger.info("✅ Data uploaded", extra={
 })
 ```
 
-**[IMAGEN: structured_logs_example.png]**
-*Captura de logs estructurados en CloudWatch*
 
 ---
 
