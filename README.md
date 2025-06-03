@@ -84,6 +84,8 @@ Análisis meteorológico avanzado para 5 ciudades colombianas principales (Bogot
 *Captura de resultados analíticos en S3 Refined Zone*
 
 ### Arquitectura Cloud (AWS)
+![image](https://github.com/user-attachments/assets/d0c31155-6ef9-4e13-bc56-0892a6fda5cb)
+
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
