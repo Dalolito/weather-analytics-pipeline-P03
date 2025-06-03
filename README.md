@@ -22,81 +22,6 @@
 
 ## Vídeo de la Sustentación
 
-## 1. Descripción de la actividad
-Este proyecto implementa una arquitectura batch completa de Big Data para análisis meteorológico usando tecnologías AWS y Apache Spark. El sistema automatiza el proceso completo desde la captura de datos hasta los modelos predictivos y consultas SQL.
-### Objetivos:
-
-✅ Captura automática de datos meteorológicos desde API OpenMeteo y base de datos MySQL
-
-✅ Ingesta automatizada hacia buckets S3 organizados por zonas (Raw, Trusted, Refined)
-
-✅ Procesamiento ETL con Apache Spark en clúster EMR
-
-✅ Análisis descriptivo y modelos de machine learning
-
-✅ Consultas SQL mediante Amazon Athena
-
-✅ API REST para acceso a resultados
-
-### Problemática analizada:
-Análisis y predicción de patrones meteorológicos en ciudades colombianas para:
-
-* Identificar tendencias climáticas por ciudad y temporada
-* Detectar eventos meteorológicos extremos
-* Generar pronósticos basados en datos históricos
-* Proporcionar datos accionables para la toma de decisiones
-
-## 1.2 Aspectos NO cumplidos o desarrollados
-Tuvimos limitaciones con:
-
-* **AWS Academy:** Permisos limitados para algunos servicios avanzados
-* **API Gateway:** Configuración manual requerida (instrucciones proporcionadas)
-* **Machine Learning:** Implementación simplificada debido a restricciones de librerías en EMR
-  
-## 2. Información general del proyecto
-
-
-### 📊 Fuente de Datos: Open-Meteo
-
-* **API Principal:** https://api.open-meteo.com/v1/forecast
-* **Datos Históricos:** https://archive-api.open-meteo.com/v1/archive
-* **Ciudades analizadas:** Bogotá, Medellín, Cali, Cartagena, Barranquilla
-
-**Variables meteorológicas:**
-
-* Temperatura (máxima, mínima, promedio)
-* Precipitación
-* Humedad relativa
-* Velocidad del viento
-* Presión atmosférica
-
-
-### Base de Datos MySQL (RDS)
-
-Estaciones meteorológicas: Metadatos de ubicaciones
-Eventos climáticos históricos: Registro de eventos extremos
-Umbrales de alerta: Configuraciones para detección de anomalías
-
-### Arquitectura del Sistema
-
-- **Raw Zone**: Datos crudos de APIs y base de datos
-- **Trusted Zone**: Datos procesados y limpios
-- **Refined Zone**: Datos analíticos y modelos ML
-
-### Flujo del Proyecto 
-
-**1. Captura:** APIs y BD → JSON crudo
-
-**2. Ingesta:** Almacenamiento automático en S3 Raw
-   
-**3.  ETL:** Spark procesa y limpia → Parquet en S3 Trusted
-   
-**4. Analytics:** Análisis estadístico → Parquet en S3 Refined
-   
-**5. ML:** Modelos predictivos simples → Métricas y pronósticos
-
-**6. Consultas:** Athena + API para acceso final
-
 ## 📋 Tabla de Contenidos
 
 1. [Descripción del Proyecto](#descripción-del-proyecto)
@@ -114,7 +39,6 @@ Umbrales de alerta: Configuraciones para detección de anomalías
 13. [Conclusiones](#conclusiones)
 
 ---
-
 ## 🎯 Descripción del Proyecto
 
 Este proyecto implementa una **arquitectura batch completa de Big Data** para análisis meteorológico automatizado usando tecnologías AWS y Apache Spark. El sistema automatiza el proceso completo desde la captura de datos hasta los modelos predictivos y consultas SQL, cumpliendo con todos los requerimientos de una solución de ingeniería de datos real.
@@ -127,6 +51,20 @@ Este proyecto implementa una **arquitectura batch completa de Big Data** para an
 - **Acceso a datos** mediante consultas SQL y APIs REST
 - **Escalabilidad** y tolerancia a fallos en la nube
 
+### Objetivos Específicos
+✅ Captura automática de datos meteorológicos desde API OpenMeteo y base de datos MySQL
+
+✅ Ingesta automatizada hacia buckets S3 organizados por zonas (Raw, Trusted, Refined)
+
+✅ Procesamiento ETL con Apache Spark en clúster EMR
+
+✅ Análisis descriptivo y modelos de machine learning
+
+✅ Consultas SQL mediante Amazon Athena
+
+✅ API REST para acceso a resultados
+
+
 ### Problema Resuelto
 
 Análisis meteorológico avanzado para 5 ciudades colombianas principales (Bogotá, Medellín, Cali, Cartagena, Barranquilla) con capacidad de:
@@ -135,6 +73,18 @@ Análisis meteorológico avanzado para 5 ciudades colombianas principales (Bogot
 - Generar pronósticos basados en datos históricos
 - Proporcionar APIs para aplicaciones externas
 
+## Aspectos NO cumplidos o desarrollados
+Tuvimos limitaciones con:
+
+* **AWS Academy:** Permisos limitados para algunos servicios avanzados
+* **API Gateway:** Configuración manual requerida (instrucciones proporcionadas)
+* **Machine Learning:** Implementación simplificada debido a restricciones de librerías en EMR
+
+### 📊 Fuente de Datos: Open-Meteo
+
+* **API Principal:** https://api.open-meteo.com/v1/forecast
+* **Datos Históricos:** https://archive-api.open-meteo.com/v1/archive
+* **Ciudades analizadas:** Bogotá, Medellín, Cali, Cartagena, Barranquilla
 
 ---
 
