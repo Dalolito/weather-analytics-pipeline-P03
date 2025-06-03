@@ -37,9 +37,10 @@
 11. [Monitoreo y Logs](#monitoreo-y-logs)
 12. [Visualización con Colab](#visualización-con-colab)
 13. [Conclusiones](#conclusiones)
+14. [Referencias y Recursos](#referencias-y-recursos)
 
 ---
-## 🎯 Descripción del Proyecto
+## 1. 🎯 Descripción del Proyecto
 
 Este proyecto implementa una **arquitectura batch completa de Big Data** para análisis meteorológico automatizado usando tecnologías AWS y Apache Spark. El sistema automatiza el proceso completo desde la captura de datos hasta los modelos predictivos y consultas SQL, cumpliendo con todos los requerimientos de una solución de ingeniería de datos real.
 
@@ -80,15 +81,9 @@ Tuvimos limitaciones con:
 * **API Gateway:** Configuración manual requerida (instrucciones proporcionadas)
 * **Machine Learning:** Implementación simplificada debido a restricciones de librerías en EMR
 
-### 📊 Fuente de Datos: Open-Meteo
-
-* **API Principal:** https://api.open-meteo.com/v1/forecast
-* **Datos Históricos:** https://archive-api.open-meteo.com/v1/archive
-* **Ciudades analizadas:** Bogotá, Medellín, Cali, Cartagena, Barranquilla
-
 ---
 
-## 🏗️ Arquitectura del Sistema
+## 2. 🏗️ Arquitectura del Sistema
 
 ### Pipeline de Datos (Data Lake Architecture)
 
@@ -151,7 +146,7 @@ Tuvimos limitaciones con:
 
 ---
 
-## 💻 Tecnologías Utilizadas
+## 3. 💻 Tecnologías Utilizadas
 
 ### Servicios AWS
 
@@ -179,7 +174,7 @@ Tuvimos limitaciones con:
 
 ---
 
-## 📁 Estructura del Proyecto
+## 4. 📁 Estructura del Proyecto
 
 ```
 weather-analytics-bigdata/
@@ -228,7 +223,7 @@ weather-analytics-bigdata/
 
 ---
 
-## 🌐 Fuentes de Datos
+## 5. 🌐 Fuentes de Datos
 
 ### 1. OpenMeteo API (Datos en Tiempo Real)
 
@@ -316,7 +311,7 @@ s3://weather-analytics-pipeline-raw-20250527/
 
 ---
 
-## ⚙️ Implementación
+## 6. ⚙️ Implementación
 
 ### 1. Proceso de Ingesta Automatizada
 
@@ -467,7 +462,7 @@ def train_temperature_prediction_model(spark, feature_df, refined_bucket):
 
 ---
 
-## 📊 Casos de Uso y Resultados
+## 7. 📊 Casos de Uso y Resultados
 
 ### Datos Procesados
 
@@ -519,7 +514,7 @@ ORDER BY total_events DESC;
 
 ---
 
-## 🚀 Guía de Instalación
+## 8. 🚀 Guía de Instalación
 
 ### Prerequisitos
 
@@ -608,7 +603,7 @@ python run_project.py --step full-pipeline --cluster-id j-XXXXXXXXXX
 
 ---
 
-## ✅ Validación y Pruebas
+## 9. ✅ Validación y Pruebas
 
 ### Tests Automatizados
 
@@ -652,7 +647,7 @@ python spark_jobs/test_spark_jobs.py
 
 ---
 
-## 🌐 API y Consultas
+## 10. 🌐 API y Consultas
 
 ### Configuración de Athena
 
@@ -739,7 +734,7 @@ GET /weather/extreme-events?type=heavy_rain&year=2024
 
 ---
 
-## 📈 Monitoreo y Logs
+## 11. 📈 Monitoreo y Logs
 
 ### CloudWatch Integration
 
@@ -808,7 +803,7 @@ logger.info("✅ Data uploaded", extra={
 
 
 ---
-## Visualización con Colab
+## 12. Visualización con Colab
 A continuación mostraremos diferentes gráficas estadísticas y de analítica sobre algunos de los archivos que obtuvimos desde la API de Open-Meteo.
 
 **Al ejecutar:**
@@ -961,7 +956,7 @@ fig.show()
 
 ![image](https://github.com/user-attachments/assets/163a050c-0ba6-4cbb-9d09-da0e3f5c9e66)
 
-## 🎯 Conclusiones
+## 13. 🎯 Conclusiones
 
 ### Logros Alcanzados
 
@@ -1065,7 +1060,7 @@ Este proyecto demuestra la implementación de una solución completa de **ingeni
 
 ---
 
-## 📚 Referencias y Recursos
+## 14. 📚 Referencias y Recursos
 
 ### Documentación Técnica
 
