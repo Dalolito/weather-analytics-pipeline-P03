@@ -21,7 +21,8 @@
 9. [Validación y Pruebas](#validación-y-pruebas)
 10. [API y Consultas](#api-y-consultas)
 11. [Monitoreo y Logs](#monitoreo-y-logs)
-12. [Conclusiones](#conclusiones)
+12. [Visualización con Colab](#visualización-con-colab)
+13. [Conclusiones](#conclusiones)
 
 ---
 
@@ -175,6 +176,10 @@ weather-analytics-bigdata/
 ├── 📁 applications/                # Aplicaciones finales
 │   ├── setup_athena.py           # Configuración Athena
 │   └── weather_api.py            # Lambda para API
+|
+├── 📁 visualizations/
+│   ├── notebooks/ # Carpeta con los notebooks para usar en Colab 
+│         └── Colab1/ #Carpe # Carpeta que contiene los archivos .json y .csv para adjuntar a Colab 
 │
 └── 📁 tests/                       # Tests y validaciones
     ├── test_connections.py        # Tests de conectividad
@@ -518,7 +523,7 @@ EOF
 python tests/test_connections.py
 ```
 
-**[IMAGEN: test_connections_success.png]**
+![Image](https://github.com/user-attachments/assets/873d6879-1727-4a87-95f3-f45f4ac42d40)
 *Captura de tests de conectividad exitosos*
 
 #### 4. Configurar Infraestructura AWS
@@ -533,7 +538,11 @@ python infrastructure/setup_emr_cluster.py
 
 ![image](https://github.com/user-attachments/assets/ba8f133e-a795-4b03-80c5-94460a9687b4)
 
-*Captura de buckets S3 creados exitosamente*
+![Image](https://github.com/user-attachments/assets/711fd955-31da-4bfd-a505-81c8468e2309)
+
+![image](https://github.com/user-attachments/assets/d5302951-596d-4b2a-b05f-e9a1d2971748)
+
+*Capturas de buckets S3 creados exitosamente*
 
 #### 5. Ejecutar Pipeline Completo
 
@@ -541,9 +550,22 @@ python infrastructure/setup_emr_cluster.py
 # Obtener ID del clúster EMR desde la consola AWS
 python run_project.py --step full-pipeline --cluster-id j-XXXXXXXXXX
 ```
+![Image](https://github.com/user-attachments/assets/bb3c1eda-e8a3-4082-a8d4-1089eeb29c7c)
 
-**[IMAGEN: pipeline_execution_logs.png]**
-*Captura de logs de ejecución del pipeline completo*
+![Image](https://github.com/user-attachments/assets/4c71138c-5292-4c99-9617-78cdf515c81f)
+
+![image](https://github.com/user-attachments/assets/985cc90b-7192-4341-a7b7-2fd28036ef4a)
+
+![image](https://github.com/user-attachments/assets/7bead2cd-f15c-4c10-8dee-0162005f870d)
+
+![image](https://github.com/user-attachments/assets/96189b5e-fa77-468f-becb-ce5af1f29a1b)
+
+![image](https://github.com/user-attachments/assets/1e544f0d-4aab-454d-afc3-40caedf435a3)
+
+![image](https://github.com/user-attachments/assets/8bc87e76-8730-4d87-8ec4-2713852f62a7)
+
+
+*Capturas de logs de ejecución del pipeline completo*
 
 ---
 
@@ -750,6 +772,20 @@ logger.info("✅ Data uploaded", extra={
 
 
 ---
+## Visualización con Colab
+A continuación mostraremos diferentes gráficas estadísticas y de analítica sobre algunos de los archivos que obtuvimos desde la API de Open-Meteo.
+
+**Al ejecutar:**
+
+```
+python visualizations/export_data_for_colab.py
+```
+
+Este nos genera un archivo .csv obtenido desde los archivos .json que se adjuntaron al S3 de AWS.
+
+Luego en Colab con diferentes celdas pudimos obtener las siguientes gráficas informativas y descriptivas:
+
+
 
 ## 🎯 Conclusiones
 
