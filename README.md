@@ -22,6 +22,8 @@
 
 ## Vídeo de la Sustentación
 
+https://youtu.be/I71m8g9W0g8
+
 ## 📋 Tabla de Contenidos
 
 1. [Descripción del Proyecto](#descripción-del-proyecto)
@@ -83,7 +85,8 @@ Tuvimos limitaciones con:
 
 ---
 
-## 2. 🏗️ Arquitectura del Sistema
+<h2 id="arquitectura-del-sistema">2. 🏗️ Arquitectura del Sistema</h2>
+
 
 ### Pipeline de Datos (Data Lake Architecture)
 
@@ -146,7 +149,8 @@ Tuvimos limitaciones con:
 
 ---
 
-## 3. 💻 Tecnologías Utilizadas
+<h2 id="tecnologías-utilizadas">3. 💻 Tecnologías Utilizadas</h2>
+
 
 ### Servicios AWS
 
@@ -174,7 +178,7 @@ Tuvimos limitaciones con:
 
 ---
 
-## 4. 📁 Estructura del Proyecto
+<h2 id="estructura-del-proyecto">4. 📁 Estructura del Proyecto</h2>
 
 ```
 weather-analytics-bigdata/
@@ -223,7 +227,8 @@ weather-analytics-bigdata/
 
 ---
 
-## 5. 🌐 Fuentes de Datos
+<h2 id="fuentes-de-datos">5. 🌐 Fuentes de Datos</h2>
+
 
 ### 1. OpenMeteo API (Datos en Tiempo Real)
 
@@ -311,7 +316,8 @@ s3://weather-analytics-pipeline-raw-20250527/
 
 ---
 
-## 6. ⚙️ Implementación
+<h2 id="implementación">6. ⚙️ Implementación</h2>
+
 
 ### 1. Proceso de Ingesta Automatizada
 
@@ -462,7 +468,8 @@ def train_temperature_prediction_model(spark, feature_df, refined_bucket):
 
 ---
 
-## 7. 📊 Casos de Uso y Resultados
+<h2 id="casos-de-uso-y-resultados">7. 📊 Casos de Uso y Resultados</h2>
+
 
 ### Datos Procesados
 
@@ -514,7 +521,8 @@ ORDER BY total_events DESC;
 
 ---
 
-## 8. 🚀 Guía de Instalación
+<h2 id="guía-de-instalación">8. 🚀 Guía de Instalación</h2>
+
 
 ### Prerequisitos
 
@@ -603,7 +611,8 @@ python run_project.py --step full-pipeline --cluster-id j-XXXXXXXXXX
 
 ---
 
-## 9. ✅ Validación y Pruebas
+<h2 id="validación-y-pruebas">9. ✅ Validación y Pruebas</h2>
+
 
 ### Tests Automatizados
 
@@ -647,7 +656,8 @@ python spark_jobs/test_spark_jobs.py
 
 ---
 
-## 10. 🌐 API y Consultas
+<h2 id="api-y-consultas">10. 🌐 API y Consultas</h2>
+
 
 ### Configuración de Athena
 
@@ -734,7 +744,8 @@ GET /weather/extreme-events?type=heavy_rain&year=2024
 
 ---
 
-## 11. 📈 Monitoreo y Logs
+<h2 id="monitoreo-y-logs">11. 📈 Monitoreo y Logs</h2>
+
 
 ### CloudWatch Integration
 
@@ -803,7 +814,8 @@ logger.info("✅ Data uploaded", extra={
 
 
 ---
-## 12. Visualización con Colab
+<h2 id="visualización-con-colab">12. Visualización con Colab</h2>
+
 A continuación mostraremos diferentes gráficas estadísticas y de analítica sobre algunos de los archivos que obtuvimos desde la API de Open-Meteo.
 
 **Al ejecutar:**
@@ -956,7 +968,8 @@ fig.show()
 
 ![image](https://github.com/user-attachments/assets/163a050c-0ba6-4cbb-9d09-da0e3f5c9e66)
 
-## 13. 🎯 Conclusiones
+<h2 id="conclusiones">13. 🎯 Conclusiones</h2>
+
 
 ### Logros Alcanzados
 
@@ -1060,7 +1073,8 @@ Este proyecto demuestra la implementación de una solución completa de **ingeni
 
 ---
 
-## 14. 📚 Referencias y Recursos
+<h2 id="referencias-y-recursos">14. 📚 Referencias y Recursos</h2>
+
 
 ### Documentación Técnica
 
