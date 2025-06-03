@@ -40,7 +40,7 @@
 14. [Referencias y Recursos](#referencias-y-recursos)
 
 ---
-## 1. 🎯 Descripción del Proyecto
+<h2 id="descripción-del-proyecto">1. 🎯 Descripción del Proyecto</h2>
 
 Este proyecto implementa una **arquitectura batch completa de Big Data** para análisis meteorológico automatizado usando tecnologías AWS y Apache Spark. El sistema automatiza el proceso completo desde la captura de datos hasta los modelos predictivos y consultas SQL, cumpliendo con todos los requerimientos de una solución de ingeniería de datos real.
 
