@@ -698,9 +698,6 @@ GET /weather/trends?city=medellin&year=2024
 GET /weather/extreme-events?type=heavy_rain&year=2024
 ```
 
-**[IMAGEN: api_response_example.png]**
-*Captura de respuesta JSON de la API*
-
 ---
 
 ## 📈 Monitoreo y Logs
@@ -777,7 +774,7 @@ A continuación mostraremos diferentes gráficas estadísticas y de analítica s
 
 **Al ejecutar:**
 
-```
+```python
 python visualizations/export_data_for_colab.py
 ```
 
@@ -785,7 +782,145 @@ Este nos genera un archivo .csv obtenido desde los archivos .json que se adjunta
 
 Luego en Colab con diferentes celdas pudimos obtener las siguientes gráficas informativas y descriptivas:
 
+```python
+# Importar las librerias 
+!pip install plotly pandas seaborn matplotlib folium -q
 
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import plotly.express as px
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+import json
+
+print("🌤️ WEATHER ANALYTICS - ANÁLISIS COMPLETO")
+print("="*60)
+```
+### **Pruebas de consultas:**
+
+```python
+print("📊 ANÁLISIS EXPLORATORIO")
+print(df.describe())
+print(f"\n🏙️ Ciudades analizadas: {df['city_name'].nunique()}")
+print(df['city_name'].value_counts())
+```
+![image](https://github.com/user-attachments/assets/e81e8521-e890-4a80-8c95-a02e4f1ffa85)
+
+### Diagramas de Tendencias
+
+```python
+fig = px.line(df,
+              x='date',
+              y='temp_avg',
+              color='city_name',
+              title='🌡️ Tendencias de Temperatura - Ciudades Colombianas',
+              markers=True,
+              hover_data=['temp_max', 'temp_min'])
+
+fig.update_layout(
+    xaxis_title="Fecha",
+    yaxis_title="Temperatura Promedio (°C)",
+    hovermode='x unified',
+    height=500
+)
+
+fig.show()
+```
+![image](https://github.com/user-attachments/assets/90702ede-d8b1-473a-8a67-65e3d67652ef)
+
+### Mapa de Temperaturas en Colombia:
+```python
+city_coords = {
+    'Bogotá': {'lat': 4.6097, 'lon': -74.0817},
+    'Medellín': {'lat': 6.2518, 'lon': -75.5636},
+    'Cali': {'lat': 3.4516, 'lon': -76.5320},
+    'Cartagena': {'lat': 10.3910, 'lon': -75.4794},
+    'Barranquilla': {'lat': 10.9639, 'lon': -74.7964}
+}
+
+# Agregar coordenadas al DataFrame
+for city, coords in city_coords.items():
+    mask = df['city_name'] == city
+    df.loc[mask, 'lat'] = coords['lat']
+    df.loc[mask, 'lon'] = coords['lon']
+
+# Calcular temperatura promedio por ciudad
+city_temps = df.groupby('city_name').agg({
+    'temp_avg': 'mean',
+    'lat': 'first',
+    'lon': 'first'
+}).reset_index()
+
+# Mapa interactivo
+fig = px.scatter_mapbox(city_temps,
+                        lat='lat',
+                        lon='lon',
+                        size='temp_avg',
+                        color='temp_avg',
+                        hover_name='city_name',
+                        hover_data={'temp_avg': ':.1f°C'},
+                        color_continuous_scale='RdYlBu_r',
+                        title='🗺️ Mapa de Temperaturas - Colombia',
+                        zoom=5)
+
+fig.update_layout(mapbox_style="open-street-map",
+                  mapbox_center_lat=5.5,
+                  mapbox_center_lon=-75,
+                  height=600)
+fig.show()
+```
+
+![image](https://github.com/user-attachments/assets/dd7df996-f2b9-405e-8546-f3de91fc54ea)
+
+```python
+fig = make_subplots(
+    rows=2, cols=2,
+    subplot_titles=('📈 Temperatura por Ciudad',
+                   '🌧️ Precipitación vs Temperatura',
+                   '📊 Distribución Temperaturas',
+                   '📈 Tendencia Semanal'),
+    specs=[[{"secondary_y": False}, {"secondary_y": False}],
+           [{"secondary_y": False}, {"secondary_y": False}]]
+)
+
+# Gráfico 1: Box plot temperaturas
+for city in df['city_name'].unique():
+    city_data = df[df['city_name'] == city]
+    fig.add_trace(
+        go.Box(y=city_data['temp_avg'], name=city, showlegend=False),
+        row=1, col=1
+    )
+
+# Gráfico 2: Scatter precipitación vs temperatura
+fig.add_trace(
+    go.Scatter(x=df['temp_avg'], y=df['precipitation'],
+               mode='markers', text=df['city_name'],
+               name='Temp vs Precip', showlegend=False),
+    row=1, col=2
+)
+
+# Gráfico 3: Histograma temperaturas
+fig.add_trace(
+    go.Histogram(x=df['temp_avg'], name='Distribución', showlegend=False),
+    row=2, col=1
+)
+
+# Gráfico 4: Promedio diario
+daily_avg = df.groupby('date')['temp_avg'].mean().reset_index()
+fig.add_trace(
+    go.Scatter(x=daily_avg['date'], y=daily_avg['temp_avg'],
+               mode='lines+markers', name='Promedio diario', showlegend=False),
+    row=2, col=2
+)
+
+fig.update_layout(height=800, title_text="📊 Dashboard Weather Analytics Colombia")
+fig.show()
+```
+### Gráficas de cajas, barras, dispersión y tendencia
+
+![image](https://github.com/user-attachments/assets/163a050c-0ba6-4cbb-9d09-da0e3f5c9e66)
 
 ## 🎯 Conclusiones
 
@@ -815,8 +950,6 @@ Luego en Colab con diferentes celdas pudimos obtener las siguientes gráficas in
    - Resultados en formatos estándar
    - Documentación completa
 
-**[IMAGEN: project_success_metrics.png]**
-*Captura de métricas finales del proyecto*
 
 ### Arquitectura Implementada
 
