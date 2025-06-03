@@ -45,8 +45,6 @@ Análisis meteorológico avanzado para 5 ciudades colombianas principales (Bogot
 - Generar pronósticos basados en datos históricos
 - Proporcionar APIs para aplicaciones externas
 
-**[IMAGEN: aws_architecture_overview.png]**
-*Captura del diagrama de arquitectura AWS desde la consola*
 
 ---
 
@@ -65,7 +63,7 @@ Análisis meteorológico avanzado para 5 ciudades colombianas principales (Bogot
 - **Contenido**: Datos sin procesar de APIs y base de datos
 - **Estructura**: Particionado por fuente, ciudad y fecha
 
-**[IMAGEN: s3_raw_zone_structure.png]**
+![image](https://github.com/user-attachments/assets/9aef5c29-7a29-44c4-9c6f-7124664c0598)
 *Captura de la estructura de carpetas en S3 Raw Zone*
 
 #### 2. **Zona Trusted (Datos Procesados)**
@@ -73,7 +71,7 @@ Análisis meteorológico avanzado para 5 ciudades colombianas principales (Bogot
 - **Transformaciones**: Limpieza, estandarización, integración
 - **Formato**: Apache Parquet con compresión
 
-**[IMAGEN: s3_trusted_zone_files.png]**
+![image](https://github.com/user-attachments/assets/745a9240-4c3f-49ff-9149-4d7f2592301f)
 *Captura de archivos Parquet en S3 Trusted Zone*
 
 #### 3. **Zona Refined (Datos Analíticos)**
@@ -81,7 +79,8 @@ Análisis meteorológico avanzado para 5 ciudades colombianas principales (Bogot
 - **Formato**: Parquet optimizado para consultas
 - **Uso**: Athena, APIs y dashboards
 
-**[IMAGEN: s3_refined_zone_analytics.png]**
+![image](https://github.com/user-attachments/assets/4c355e45-df8a-4f8b-8b40-123014287672)
+
 *Captura de resultados analíticos en S3 Refined Zone*
 
 ### Arquitectura Cloud (AWS)
@@ -105,7 +104,7 @@ Análisis meteorológico avanzado para 5 ciudades colombianas principales (Bogot
 └─────────────────┘                            └─────────────────┘
 ```
 
-**[IMAGEN: aws_console_services_overview.png]**
+![Captura de pantalla 2025-06-02 190228](https://github.com/user-attachments/assets/f29d5843-62ab-4fb0-88a1-f0d38c1c0bca)
 *Captura de los servicios AWS utilizados en la consola*
 
 ---
@@ -123,7 +122,7 @@ Análisis meteorológico avanzado para 5 ciudades colombianas principales (Bogot
 | **AWS Lambda** | API serverless | Python 3.9 runtime |
 | **API Gateway** | REST API management | HTTP APIs |
 
-**[IMAGEN: emr_cluster_configuration.png]**
+![image](https://github.com/user-attachments/assets/98b02165-c5c6-4697-8b96-b7bc35acfb3d)
 *Captura de la configuración del clúster EMR*
 
 ### Stack Tecnológico
@@ -135,9 +134,6 @@ Análisis meteorológico avanzado para 5 ciudades colombianas principales (Bogot
 - **Orquestación**: Python scripts + AWS services
 - **APIs**: REST con JSON
 - **Testing**: pytest + moto
-
-**[IMAGEN: emr_applications_installed.png]**
-*Captura de las aplicaciones instaladas en EMR*
 
 ---
 
@@ -210,7 +206,8 @@ CITIES = {
 - Humedad relativa
 - Presión atmosférica
 
-**[IMAGEN: openmeteo_api_response.png]**
+![image](https://github.com/user-attachments/assets/7ec8fc66-1cab-4324-98d4-9c3c7f38fac1)
+
 *Captura de respuesta JSON de la API OpenMeteo*
 
 ### 2. Base de Datos Relacional (RDS MySQL)
@@ -246,7 +243,8 @@ CREATE TABLE climate_events (
 );
 ```
 
-**[IMAGEN: rds_mysql_tables.png]**
+![image](https://github.com/user-attachments/assets/48106883-ddea-4eab-8d77-af59b68f01b9)
+
 *Captura de las tablas en RDS MySQL desde la consola AWS*
 
 ### Estructura de Datos en S3
@@ -264,7 +262,10 @@ s3://weather-analytics-pipeline-raw-20250527/
 │   └── weather_thresholds/2025/05/30/14/weather_thresholds_data.json
 ```
 
-**[IMAGEN: s3_raw_data_sample.png]**
+
+![image](https://github.com/user-attachments/assets/ed853508-1b4c-4108-84b2-a23efa16a94b)
+![image](https://github.com/user-attachments/assets/9ee7669b-df59-4b76-ac81-dcb079f2e524)
+
 *Captura de un archivo JSON de datos crudos en S3*
 
 ---
@@ -292,7 +293,8 @@ class OpenMeteoAPIIngester:
         # Procesamiento y subida a S3...
 ```
 
-**[IMAGEN: ingestion_logs_cloudwatch.png]**
+![image](https://github.com/user-attachments/assets/61c97fb7-3edc-4f8e-a02a-436892d6ad58)
+
 *Captura de logs de ingesta en CloudWatch*
 
 #### Ingesta desde Base de Datos
@@ -313,9 +315,6 @@ class DatabaseIngester:
 ```
 
 ### 2. Procesamiento ETL con Spark
-
-**[IMAGEN: emr_cluster_running.png]**
-*Captura del clúster EMR en estado "Waiting"*
 
 #### Limpieza y Transformación
 
@@ -339,8 +338,6 @@ def process_weather_api_data(spark, raw_bucket, trusted_bucket):
     )
 ```
 
-**[IMAGEN: emr_steps_execution.png]**
-*Captura de los steps de Spark ejecutándose en EMR*
 
 #### Integración de Datos
 
@@ -378,8 +375,6 @@ def analyze_temperature_trends(spark, trusted_bucket, refined_bucket):
         )
 ```
 
-**[IMAGEN: spark_job_progress.png]**
-*Captura del progreso de jobs de Spark en la UI de EMR*
 
 #### Detección de Eventos Extremos
 
@@ -420,7 +415,8 @@ def train_temperature_prediction_model(spark, feature_df, refined_bucket):
     model = pipeline.fit(train_data)
 ```
 
-**[IMAGEN: ml_model_metrics.png]**
+![image](https://github.com/user-attachments/assets/d84deaec-24b0-45ae-a06f-0809fe4548bf)
+
 *Captura de métricas de modelos ML guardadas en S3*
 
 ---
@@ -434,9 +430,6 @@ def train_temperature_prediction_model(spark, feature_df, refined_bucket):
 - **7 días** de pronósticos por ciudad
 - **Eventos extremos** detectados y clasificados
 - **Modelos ML** entrenados con métricas de evaluación
-
-**[IMAGEN: processed_data_statistics.png]**
-*Captura de estadísticas de datos procesados en Athena*
 
 ### Análisis Realizados
 
@@ -456,8 +449,6 @@ ORDER BY avg_temp DESC;
 - Medellín: 22.1°C
 - Bogotá: 15.7°C (clima más frío)
 
-**[IMAGEN: athena_query_results.png]**
-*Captura de resultados de consulta en Athena*
 
 #### 2. Eventos Meteorológicos Extremos
 
@@ -468,8 +459,9 @@ GROUP BY city_name, event_type
 ORDER BY total_events DESC;
 ```
 
-**[IMAGEN: extreme_events_analysis.png]**
-*Captura de análisis de eventos extremos*
+![image](https://github.com/user-attachments/assets/112c95fe-0d59-494b-9951-98d8550e42d6)
+
+*Captura de query de  análisis de eventos extremos*
 
 #### 3. Precisión de Modelos ML
 
@@ -478,8 +470,6 @@ ORDER BY total_events DESC;
 | Predicción Temperatura | 2.1°C | Muy buena precisión |
 | Predicción Precipitación | 8.5mm | Aceptable |
 
-**[IMAGEN: ml_model_evaluation.png]**
-*Captura de métricas de evaluación de modelos ML*
 
 ---
 
